@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - LocalPro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-icon">⚡</span>
+                    <span class="logo-text">LocalPro</span>
+                </a>
+                <nav class="nav" id="mainNav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="directory.html" class="nav-link">Directory</a>
+                    <a href="admin.html" class="nav-link active">Admin</a>
+                </nav>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Hero -->
+    <section class="admin-hero">
+        <div class="container">
+            <div class="admin-hero-content">
+                <h1 class="admin-title">Admin Panel</h1>
+                <p class="admin-subtitle">Manage electricians directory</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Content -->
+    <section class="admin-section">
+        <div class="container">
+            <div class="admin-grid">
+                <!-- Form Section -->
+                <div class="admin-form-section">
+                    <div class="form-card">
+                        <h2 class="form-title" id="formTitle">Add New Electrician</h2>
+                        
+                        <form id="electricianForm" class="electrician-form">
+                            <input type="hidden" id="electricianId">
+                            
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name *</label>
+                                <input type="text" id="name" class="form-input" required placeholder="e.g., John Doe">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="service" class="form-label">Service *</label>
+                                <input type="text" id="service" class="form-input" required placeholder="e.g., Electrical Installation & Repairs">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city" class="form-label">City *</label>
+                                    <input type="text" id="city" class="form-input" required value="Uyo" readonly>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="area" class="form-label">Area *</label>
+                                    <select id="area" class="form-input" required>
+                                        <option value="">Select Area</option>
+                                        <option value="Ikot Ekpene Road">Ikot Ekpene Road</option>
+                                        <option value="Aka Road">Aka Road</option>
+                                        <option value="Ewet Housing">Ewet Housing</option>
+                                        <option value="Oron Road">Oron Road</option>
+                                        <option value="Use Offot">Use Offot</option>
+                                        <option value="Eket Road">Eket Road</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Phone Number *</label>
+                                    <input type="tel" id="phone" class="form-input" required placeholder="+234XXXXXXXXXX">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="whatsapp" class="form-label">WhatsApp *</label>
+                                    <input type="tel" id="whatsapp" class="form-input" required placeholder="+234XXXXXXXXXX">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="experience" class="form-label">Years of Experience *</label>
+                                    <input type="number" id="experience" class="form-input" required min="1" max="50" placeholder="e.g., 5">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Verification Status</label>
+                                    <label class="checkbox-wrapper">
+                                        <input type="checkbox" id="verified" class="form-checkbox">
+                                        <span class="checkbox-label-text">Verified Professional</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="photo" class="form-label">Photo URL</label>
+                                <input type="url" id="photo" class="form-input" placeholder="https://example.com/photo.jpg">
+                                <small class="form-hint">Leave empty to auto-generate from name</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="description" class="form-label">Description *</label>
+                                <textarea id="description" class="form-textarea" required placeholder="Brief description of services offered..." rows="4"></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary btn-submit">
+                                    <span id="submitText">Add Electrician</span>
+                                </button>
+                                <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- List Section -->
+                <div class="admin-list-section">
+                    <div class="list-card">
+                        <div class="list-header">
+                            <h2 class="list-title">All Electricians</h2>
+                            <span class="list-count" id="totalCount">0</span>
+                        </div>
+                        
+                        <div class="list-search">
+                            <input type="text" id="adminSearch" class="list-search-input" placeholder="Search electricians...">
+                        </div>
+                        
+                        <div class="electricians-list" id="electriciansList">
+                            <div class="loading-message">Loading electricians...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Confirm Delete</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete <strong id="deleteElectricianName"></strong>?</p>
+                <p class="modal-warning">This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelDelete">Cancel</button>
+                <button class="btn btn-danger" id="confirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer with Disclaimer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">LocalPro</span>
+                    </div>
+                    <p class="footer-tagline">Your trusted directory for verified electricians in Uyo</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Quick Links</h4>
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="directory.html" class="footer-link">Directory</a>
+                        <a href="admin.html" class="footer-link">Admin</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Contact</h4>
+                        <a href="tel:+2348012345678" class="footer-link">+234 801 234 5678</a>
+                        <a href="mailto:info@localpro.ng" class="footer-link">info@localpro.ng</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-disclaimer">
+                <p class="disclaimer-text">
+                    <strong>Disclaimer:</strong> LocalPro is a directory platform connecting users with independent electricians. 
+                    We verify credentials but do not employ these professionals. All work agreements, pricing, and service quality 
+                    are between you and the electrician. We recommend getting quotes and verifying credentials before hiring. 
+                    LocalPro is not liable for any disputes, damages, or service issues.
+                </p>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2024 LocalPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="admin.js"></script>
+</body>
+</html>

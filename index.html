@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalPro - Find Trusted Electricians in Uyo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Ad Popup Overlay -->
+    <div class="ad-overlay" id="adOverlay">
+        <div class="ad-popup">
+            <div class="ad-header">
+                <span class="ad-badge">SPONSORED ADVERTISEMENT</span>
+            </div>
+            <div class="ad-content">
+                <div class="ad-icon-wrapper">
+                    <svg class="ad-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="ad-title">Emergency Electrical Services Available</h3>
+                <p class="ad-description">Connect with verified, licensed electricians in Uyo. Professional service available 24/7 for residential and commercial electrical needs.</p>
+                <a href="directory.html" class="ad-cta-button">View All Electricians</a>
+            </div>
+            <button class="skip-button" id="skipButton" disabled>
+                <span id="skipText">Skip in <span id="countdown">5</span> seconds</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">LocalPro</span>
+                </a>
+                <nav class="nav" id="mainNav">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="directory.html" class="nav-link">Directory</a>
+                    <a href="directory.html" class="btn-header">Find Electrician</a>
+                </nav>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-pattern"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span class="badge-text">TRUSTED BY 500+ UYO RESIDENTS</span>
+                </div>
+                <h1 class="hero-title">
+                    Professional <span class="highlight">Electrical Services</span>
+                    <br>You Can Trust
+                </h1>
+                <p class="hero-subtitle">
+                    Connect with certified, experienced electricians in Uyo. 
+                    Licensed professionals delivering quality workmanship with transparent pricing and reliable service.
+                </p>
+                
+                <!-- Search Bar -->
+                <div class="hero-search">
+                    <div class="search-wrapper">
+                        <div class="search-icon-wrapper">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM19 19l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <input type="text" class="search-input" id="heroSearch" placeholder="Enter your area or electrician name...">
+                        <button class="search-button" id="heroSearchButton">
+                            <span>Search Directory</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="hero-cta">
+                    <a href="directory.html" class="btn btn-primary btn-large">
+                        <span>Browse All Electricians</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#how-it-works" class="btn btn-secondary btn-large">
+                        <span>How It Works</span>
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Certified Professionals</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Satisfied Customers</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support Available</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How LocalPro Works</h2>
+                <p class="section-description">Three simple steps to connect with the best electricians in Uyo</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-image-wrapper">
+                        <div class="step-image step-image-1">
+                            <div class="step-number-badge">01</div>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Search & Discover</h3>
+                        <p class="step-description">Browse our comprehensive directory of verified electricians or use our advanced filter system to find professionals in your specific area across Uyo</p>
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-image-wrapper">
+                        <div class="step-image step-image-2">
+                            <div class="step-number-badge">02</div>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Connect Directly</h3>
+                        <p class="step-description">Contact electricians directly via phone or WhatsApp to discuss your project requirements, get quotes, and schedule service at your convenience</p>
+                    </div>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-image-wrapper">
+                        <div class="step-image step-image-3">
+                            <div class="step-number-badge">03</div>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Quality Service</h3>
+                        <p class="step-description">Experience professional electrical work delivered by licensed, insured technicians with years of experience serving the Uyo community</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="why-choose-grid">
+                <div class="why-choose-content">
+                    <h2 class="section-title">Why Choose LocalPro?</h2>
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="22 4 12 14.01 9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="feature-content">
+                                <h3 class="feature-title">Verified Professionals</h3>
+                                <p class="feature-description">All electricians are thoroughly vetted for credentials, experience and reliability</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="feature-content">
+                                <h3 class="feature-title">Local Expertise</h3>
+                                <p class="feature-description">Find qualified electricians operating in your specific neighborhood across Uyo</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                                    <polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="feature-content">
+                                <h3 class="feature-title">Rapid Response</h3>
+                                <p class="feature-description">Direct contact methods ensure fast communication for urgent electrical needs</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="feature-content">
+                                <h3 class="feature-title">Transparent Pricing</h3>
+                                <p class="feature-description">Discuss rates and project scope directly with no hidden fees or surprises</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="directory.html" class="btn btn-primary">Get Started Now</a>
+                </div>
+                
+                <div class="why-choose-image">
+                    <div class="electrical-services-image">
+                        <div class="image-overlay">
+                            <h3 class="image-title">Professional Electrical Services</h3>
+                            <div class="image-features">
+                                <div class="image-feature">Licensed</div>
+                                <div class="image-feature">Insured</div>
+                                <div class="image-feature">Trusted</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Disclaimer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">LocalPro</span>
+                    </div>
+                    <p class="footer-tagline">Your trusted directory for verified electricians in Uyo</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Quick Links</h4>
+                        <a href="index.html" class="footer-link">Home</a>
+                        <a href="directory.html" class="footer-link">Directory</a>
+                        <a href="#how-it-works" class="footer-link">How It Works</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Contact</h4>
+                        <a href="tel:+2348012345678" class="footer-link">+234 801 234 5678</a>
+                        <a href="mailto:info@localpro.ng" class="footer-link">info@localpro.ng</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-disclaimer">
+                <p class="disclaimer-text">
+                    <strong>Disclaimer:</strong> LocalPro is a directory platform connecting users with independent electricians. 
+                    We verify credentials but do not employ these professionals. All work agreements, pricing, and service quality 
+                    are between you and the electrician. We recommend getting quotes and verifying credentials before hiring. 
+                    LocalPro is not liable for any disputes, damages, or service issues.
+                </p>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2024 LocalPro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
