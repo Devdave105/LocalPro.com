@@ -43,7 +43,7 @@
     </section>
 
     <!-- Search and Filter Section -->
-    <section class="search-filter-section">
+    <section class="search-filter-section" id="searchFilterSection">
         <div class="container">
             <div class="search-filter-container">
                 <!-- Search Bar with Exit Button -->
@@ -85,12 +85,24 @@
                     </div>
 
                     <button class="clear-filters-btn" id="clearFilters">Clear Filters</button>
+                    
+                    <button class="back-to-home-btn" id="backToHomeBtn" title="Back to home">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
 
             <!-- Results Info -->
             <div class="results-info">
                 <p id="resultsCount" class="results-text">Loading electricians...</p>
+                <button class="toggle-search-btn" id="toggleSearchBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 9l-7 7-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Hide Search</span>
+                </button>
             </div>
         </div>
     </section>

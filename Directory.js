@@ -101,8 +101,53 @@ document.addEventListener('DOMContentLoaded', function() {
             searchInput.value = '';
             areaFilter.value = '';
             verifiedFilter.checked = false;
+            if (searchExitBtn) {
+                searchExitBtn.classList.add('hidden');
+            }
             applyFilters();
         });
+    }
+    
+    // Back to home button
+    const backToHomeBtn = document.getElementById('backToHomeBtn');
+    if (backToHomeBtn) {
+        backToHomeBtn.addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+    }
+    
+    // ===================================
+    // TOGGLE SEARCH SECTION
+    // ===================================
+    const toggleSearchBtn = document.getElementById('toggleSearchBtn');
+    const searchFilterSection = document.getElementById('searchFilterSection');
+    
+    if (toggleSearchBtn && searchFilterSection) {
+        toggleSearchBtn.addEventListener('click', function() {
+            searchFilterSection.classList.toggle('collapsed');
+            const isCollapsed = searchFilterSection.classList.contains('collapsed');
+            const btnText = this.querySelector('span');
+            btnText.textContent = isCollapsed ? 'Show Search' : 'Hide Search';
+        });
+        
+        // Auto-collapse after first search/filter
+        let hasSearched = false;
+        const autoCollapse = function() {
+            if (!hasSearched && (searchInput.value || areaFilter.value || verifiedFilter.checked)) {
+                hasSearched = true;
+                setTimeout(() => {
+                    if (searchFilterSection && !searchFilterSection.classList.contains('collapsed')) {
+                        searchFilterSection.classList.add('collapsed');
+                        const btnText = toggleSearchBtn.querySelector('span');
+                        if (btnText) btnText.textContent = 'Show Search';
+                    }
+                }, 1000);
+            }
+        };
+        
+        searchInput.addEventListener('input', autoCollapse);
+        areaFilter.addEventListener('change', autoCollapse);
+        verifiedFilter.addEventListener('change', autoCollapse);
     }
 });
 
